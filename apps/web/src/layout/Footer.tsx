@@ -99,12 +99,13 @@ export function Footer() {
         if (typographyState === "hidden" || typographyState === "exiting") {
           setTypographyState("entering")
         }
-      } else {
-        if (typographyState === "visible" || typographyState === "entering") {
-          setTypographyState("exiting")
-          if (timerRef.current) clearTimeout(timerRef.current)
-          timerRef.current = setTimeout(() => setTypographyState("hidden"), 500)
-        }
+      } else if (
+        typographyState === "visible" ||
+        typographyState === "entering"
+      ) {
+        setTypographyState("exiting")
+        if (timerRef.current) clearTimeout(timerRef.current)
+        timerRef.current = setTimeout(() => setTypographyState("hidden"), 500)
       }
     }
 
