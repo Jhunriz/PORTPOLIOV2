@@ -10,45 +10,92 @@ export default function HeroPage() {
 
   return (
     <div className="min-h-screen font-sans text-black transition-colors duration-500 dark:text-white">
-      <main className="mx-auto grid max-w-7xl items-center gap-12 px-8 pt-5 pb-32 lg:grid-cols-2">
-        <div className="space-y-6">
-          <h1 className="flex flex-col text-6xl leading-[1.05] font-bold tracking-tight md:text-7xl">
-            <span>CODEHOLDER</span>
-            <span className="-mt-1 text-sm text-gray-700 dark:text-gray-300">
-              BY JHUNRIZ
-            </span>
-          </h1>
-          <p className="max-w-md text-lg leading-relaxed text-gray-500 dark:text-gray-400">
-            I build modern, responsive websites and web apps that bring ideas to
-            life.
-          </p>
-          <p className="text-gray-600 dark:text-gray-400">
-            Toggle theme: <Kbd>Ctrl</Kbd> + <Kbd>Shift</Kbd> (or <Kbd>Alt</Kbd>)
-            + <Kbd>D</Kbd> (dark) / <Kbd>Ctrl</Kbd> + <Kbd>Shift</Kbd> (or{" "}
-            <Kbd>Alt</Kbd>) + <Kbd>L</Kbd> (light)
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Button
-              size="lg"
-              className="rounded-md bg-black px-6 py-3 text-base text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-300"
-            >
-              Github <FolderGit2 className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-md border border-black px-6 py-3 text-base text-black transition-colors hover:bg-gray-100 dark:border-white dark:text-white dark:hover:bg-gray-800"
-            >
-              View projects docs
-            </Button>
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:py-20">
+        <div className="grid items-center gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left Content */}
+          <div className="order-2 space-y-5 sm:space-y-6 md:space-y-8 lg:order-1">
+            <h1 className="flex flex-col space-y-1 sm:space-y-2">
+              <span className="bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl leading-[1.1] font-bold tracking-tight text-transparent sm:text-5xl sm:leading-[1.1] md:text-6xl md:leading-[1.1] lg:text-7xl xl:text-8xl dark:from-white dark:to-gray-400">
+                CODEHOLDER
+              </span>
+              <span className="text-xs font-medium text-gray-600 sm:text-sm md:text-base dark:text-gray-400">
+                BY JHUNRIZ
+              </span>
+            </h1>
+
+            <p className="max-w-md text-base leading-relaxed text-gray-600 sm:text-lg md:text-xl dark:text-gray-300">
+              I build modern, responsive websites and web apps that bring ideas
+              to life.
+            </p>
+
+            <div className="space-y-2 text-xs text-gray-500 sm:text-sm dark:text-gray-400">
+              <p className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span>Toggle theme:</span>
+                <span className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <Kbd className="text-xs sm:text-sm">Ctrl</Kbd> +{" "}
+                  <Kbd className="text-xs sm:text-sm">Shift</Kbd>
+                  <span className="hidden sm:inline">(or</span>
+                  <span className="inline sm:hidden">/</span>
+                  <Kbd className="text-xs sm:text-sm">Alt</Kbd>) +{" "}
+                  <Kbd className="text-xs sm:text-sm">D</Kbd>
+                </span>
+                <span className="hidden sm:inline">(dark)</span>
+                <span className="inline sm:hidden">/</span>
+                <span className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <span className="hidden sm:inline">/</span>
+                  <Kbd className="text-xs sm:text-sm">Ctrl</Kbd> +{" "}
+                  <Kbd className="text-xs sm:text-sm">Shift</Kbd>
+                  <span className="hidden sm:inline">(or</span>
+                  <span className="inline sm:hidden">/</span>
+                  <Kbd className="text-xs sm:text-sm">Alt</Kbd>) +{" "}
+                  <Kbd className="text-xs sm:text-sm">L</Kbd>
+                </span>
+                <span className="hidden sm:inline">(light)</span>
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:gap-4 sm:pt-4">
+              <Button
+                size="lg"
+                className="w-full rounded-md bg-black px-5 py-2.5 text-sm text-white transition-all duration-300 hover:scale-105 hover:bg-gray-800 sm:w-auto sm:px-6 sm:py-3 sm:text-base dark:bg-white dark:text-black dark:hover:bg-gray-200"
+              >
+                <span>GitHub</span>
+                <FolderGit2 className="ml-2 h-4 w-4" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full rounded-md border border-black px-5 py-2.5 text-sm text-black transition-all duration-300 hover:scale-105 hover:bg-gray-100 sm:w-auto sm:px-6 sm:py-3 sm:text-base dark:border-white dark:text-white dark:hover:bg-gray-800"
+              >
+                View projects docs
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Content - Decorative Element */}
+          <div className="relative order-1 flex h-[300px] w-full items-center justify-center sm:h-[350px] md:h-[400px] lg:order-2 lg:h-[450px] xl:h-[500px]">
+            {/* Animated Background Effect */}
+            <div className="absolute inset-0 animate-pulse rounded-full bg-linear-to-tr from-gray-200/50 via-gray-100/30 to-transparent blur-2xl sm:blur-3xl dark:from-gray-800/50 dark:via-gray-700/30" />
+
+            {/* Decorative Circles */}
+            <div className="animate-spin-slow absolute h-2/3 w-2/3 rounded-full border-2 border-gray-200 opacity-30 dark:border-gray-700" />
+            <div className="animate-spin-slow animation-delay-1000 absolute h-1/2 w-1/2 rounded-full border-2 border-gray-300 opacity-40 dark:border-gray-600" />
+            <div className="absolute h-1/3 w-1/3 animate-pulse rounded-full bg-linear-to-r from-blue-500 to-purple-500 opacity-20 blur-xl" />
+
+            {/* Optional: Add an icon or code symbol */}
+            <div className="relative z-10">
+              <div className="text-6xl opacity-20 select-none sm:text-7xl md:text-8xl lg:text-9xl">
+                {`</>`}
+              </div>
+            </div>
           </div>
         </div>
-        <div className="relative flex h-[400px] w-full items-center justify-center lg:h-[500px]">
-          <div className="absolute inset-0 rounded-full bg-linear-to-tr from-gray-200/50 to-transparent blur-3xl dark:from-gray-800/50" />
-        </div>
       </main>
-      {/* footer */}
-      <TechCarousel />
+
+      {/* Tech Carousel and Timeline */}
+      <div className="mt-8 sm:mt-12 md:mt-16">
+        <TechCarousel />
+      </div>
       <TimelinePage />
     </div>
   )
