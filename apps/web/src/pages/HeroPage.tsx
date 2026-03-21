@@ -1,32 +1,10 @@
-import { useEffect } from "react"
 import { Button } from "@workspace/ui/components/button"
 import { FolderGit2 } from "lucide-react"
 import { Kbd } from "@workspace/ui/components/kbd"
+import { useThemeShortcut } from "@/hooks/useThemeShortcut"
 
 export default function HeroPage() {
-  useEffect(() => {
-    const handleKeydown = (e: KeyboardEvent) => {
-      // Dark mode: Ctrl + Shift (or Alt) + D
-      if (
-        e.ctrlKey &&
-        (e.shiftKey || e.altKey) &&
-        e.key.toLowerCase() === "d"
-      ) {
-        document.documentElement.classList.add("dark")
-      }
-      // Light mode: Ctrl + Shift (or Alt) + L
-      else if (
-        e.ctrlKey &&
-        (e.shiftKey || e.altKey) &&
-        e.key.toLowerCase() === "l"
-      ) {
-        document.documentElement.classList.remove("dark")
-      }
-    }
-
-    globalThis.addEventListener("keydown", handleKeydown)
-    return () => globalThis.removeEventListener("keydown", handleKeydown)
-  }, [])
+  useThemeShortcut()
 
   return (
     <div className="min-h-screen font-sans text-black transition-colors duration-500 dark:text-white">
@@ -64,7 +42,7 @@ export default function HeroPage() {
           </div>
         </div>
         <div className="relative flex h-[400px] w-full items-center justify-center lg:h-[500px]">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-200/50 to-transparent blur-3xl dark:from-gray-800/50" />
+          <div className="absolute inset-0 rounded-full bg-linear-to-tr from-gray-200/50 to-transparent blur-3xl dark:from-gray-800/50" />
           <img
             src="/path-to-your-isometric-illustration.png"
             alt="Stack Illustration"
@@ -72,7 +50,7 @@ export default function HeroPage() {
           />
         </div>
       </main>
-      <footer className="border-t border-gray-200 dark:border-gray-700">
+      <footer className="">
         <div className="mx-auto max-w-7xl px-8 py-12">
           <div className="flex flex-wrap items-center justify-between gap-12 opacity-70 grayscale transition-all hover:grayscale-0">
             <p className="mb-4 w-full text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase lg:mb-0 lg:w-auto dark:text-gray-500">
@@ -91,6 +69,6 @@ export default function HeroPage() {
   )
 }
 
-function LogoPlaceholder({ name }: { name: string }) {
+function LogoPlaceholder({ name }: Readonly<{ name: string }>) {
   return <span className="text-xl font-bold tracking-tighter">{name}</span>
 }

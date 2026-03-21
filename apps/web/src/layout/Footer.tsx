@@ -3,82 +3,29 @@ import { ExternalLink } from "lucide-react"
 
 const styles = `
   @keyframes fadeSlideUp {
-    from {
-      opacity: 0;
-      transform: translateY(32px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
   @keyframes revealText {
-    from {
-      clip-path: inset(0 0 100% 0);
-      transform: translateY(60px);
-      opacity: 0;
-    }
-    to {
-      clip-path: inset(0 0 0% 0);
-      transform: translateY(0px);
-      opacity: 1;
-    }
+    from { clip-path: inset(0 0 100% 0); transform: translateY(60px); opacity: 0; }
+    to { clip-path: inset(0 0 0% 0); transform: translateY(0); opacity: 1; }
   }
-
   @keyframes hideText {
-    from {
-      clip-path: inset(0 0 0% 0);
-      transform: translateY(0px);
-      opacity: 1;
-    }
-    to {
-      clip-path: inset(0 0 100% 0);
-      transform: translateY(60px);
-      opacity: 0;
-    }
+    from { clip-path: inset(0 0 0% 0); transform: translateY(0); opacity: 1; }
+    to { clip-path: inset(0 0 100% 0); transform: translateY(60px); opacity: 0; }
   }
-
-  .footer-animate {
-    opacity: 0;
-  }
-
-  .footer-animate.visible {
-    animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
+  .footer-animate { opacity: 0; }
+  .footer-animate.visible { animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
   .footer-delay-1 { animation-delay: 0.1s; }
   .footer-delay-2 { animation-delay: 0.22s; }
   .footer-delay-3 { animation-delay: 0.34s; }
   .footer-delay-4 { animation-delay: 0.46s; }
-
-  .dev-text-wrapper {
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .dev-text {
-    display: block;
-    will-change: transform, opacity, clip-path;
-  }
-
-  .dev-text.entering {
-    animation: revealText 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .dev-text.exiting {
-    animation: hideText 0.5s cubic-bezier(0.4, 0, 1, 1) forwards;
-  }
-
-  .nav-link {
-    display: block;
-    transition: color 0.25s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .nav-link:hover {
-    transform: translateX(5px);
-    color: white;
-  }
+  .dev-text-wrapper { overflow: hidden; pointer-events: none; }
+  .dev-text { display: block; will-change: transform, opacity, clip-path; }
+  .dev-text.entering { animation: revealText 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .dev-text.exiting { animation: hideText 0.5s cubic-bezier(0.4, 0, 1, 1) forwards; }
+  .nav-link { display: block; transition: color 0.25s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .nav-link:hover { transform: translateX(5px); color: white; }
 `
 
 export function Footer() {
@@ -132,26 +79,25 @@ export function Footer() {
   return (
     <>
       <style>{styles}</style>
-      <footer className="w-full bg-black text-white">
+      <footer className="w-full border-t border-gray-200 bg-white/30 text-black shadow-2xl backdrop-blur-lg transition-colors duration-500 dark:border-gray-700 dark:bg-black/30 dark:text-white">
         <div ref={footerRef} className="px-6 py-12 md:px-12 md:py-16 lg:px-16">
-          {/* Top Section */}
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left Side */}
             <div
               className={`footer-animate footer-delay-1 space-y-10 ${visibleClass}`}
             >
               <div className="space-y-1">
-                <p className="text-sm text-gray-400">Get Support :</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Get Support :
+                </p>
                 <a
                   href="mailto:jhunriz14@gmail.com"
-                  className="text-white transition-colors duration-300 hover:text-gray-300"
+                  className="text-black transition-colors duration-300 hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
                 >
                   jhunriz14@gmail.com
                 </a>
               </div>
             </div>
 
-            {/* Right Side - Navigation */}
             <div className="grid grid-cols-2 gap-8 lg:justify-end lg:gap-16">
               <nav
                 className={`footer-animate footer-delay-2 space-y-3 ${visibleClass}`}
@@ -162,7 +108,11 @@ export function Footer() {
                   { href: "/projects", label: "About" },
                   { href: "/pricing", label: "Contact" },
                 ].map(({ href, label }) => (
-                  <a key={label} href={href} className="nav-link text-gray-300">
+                  <a
+                    key={label}
+                    href={href}
+                    className="nav-link text-gray-600 dark:text-gray-300"
+                  >
                     {label}
                   </a>
                 ))}
@@ -180,7 +130,7 @@ export function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="nav-link flex items-center gap-1 text-gray-300"
+                    className="nav-link flex items-center gap-1 text-gray-600 dark:text-gray-300"
                   >
                     {label} <ExternalLink className="h-4 w-4" />
                   </a>
@@ -189,22 +139,20 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Bottom Section */}
           <div
             className={`footer-animate footer-delay-4 mt-12 flex flex-col justify-end gap-8 md:flex-row md:gap-16 lg:mt-16 ${visibleClass}`}
           >
-            <div className="text-right text-sm text-gray-400">
+            <div className="text-right text-sm text-gray-500 dark:text-gray-400">
               <p>Philippines</p>
               <p>Metro, Manila</p>
             </div>
           </div>
         </div>
 
-        {/* Large Typography */}
         {typographyState !== "hidden" && (
           <div className="dev-text-wrapper px-4 pb-4">
             <h1
-              className={`dev-text font-bold tracking-tighter text-white select-none ${
+              className={`dev-text font-bold tracking-tighter text-black select-none dark:text-white ${
                 typographyState === "entering" || typographyState === "visible"
                   ? "entering"
                   : "exiting"
