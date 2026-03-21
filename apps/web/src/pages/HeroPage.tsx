@@ -1,5 +1,5 @@
 import { Button } from "@workspace/ui/components/button"
-import { ArrowUpRight, FolderGit2 } from "lucide-react"
+import { FolderGit2 } from "lucide-react"
 
 export default function HeroPage() {
   return (
