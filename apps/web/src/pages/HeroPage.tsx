@@ -14,10 +14,9 @@ export default function HeroPage() {
           </h1>
           <p className="max-w-md text-lg leading-relaxed text-slate-500">
             I build modern, responsive websites and web apps that bring ideas to
-            life. From landing pages to full-featured applications, I turn
-            complex problems into clean, functional, and enjoyable experiences.
+            life.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="g ap-4 flex flex-wrap">
             <Button
               size="lg"
               className="rounded-md px-6 py-3 text-base text-white transition-all hover:bg-gray-500"
@@ -29,7 +28,7 @@ export default function HeroPage() {
               variant="outline"
               className="rounded-md border-slate-200 px-6 py-3 text-base"
             >
-              View framework docs
+              View projects docs
             </Button>
           </div>
         </div>
