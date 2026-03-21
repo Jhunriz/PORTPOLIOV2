@@ -2,6 +2,7 @@
   "name": "portpolioV2",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "npm@10.0.0",
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -21,5 +22,10 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "lucide-react": "^0.577.0",
+    "motion": "^12.38.0",
+    "react-router-dom": "^7.13.1"
+  }
 }
