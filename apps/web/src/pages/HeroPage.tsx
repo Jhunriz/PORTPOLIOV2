@@ -2,13 +2,14 @@ import { Button } from "@workspace/ui/components/button"
 import { FolderGit2 } from "lucide-react"
 import { Kbd } from "@workspace/ui/components/kbd"
 import { useThemeShortcut } from "@/hooks/useThemeShortcut"
+import { TechCarousel } from "./TechCarousel"
 
 export default function HeroPage() {
   useThemeShortcut()
 
   return (
     <div className="min-h-screen font-sans text-black transition-colors duration-500 dark:text-white">
-      <main className="mx-auto grid max-w-7xl items-center gap-12 px-8 pt-20 pb-32 lg:grid-cols-2">
+      <main className="mx-auto grid max-w-7xl items-center gap-12 px-8 pt-5 pb-32 lg:grid-cols-2">
         <div className="space-y-6">
           <h1 className="flex flex-col text-6xl leading-[1.05] font-bold tracking-tight md:text-7xl">
             <span>CODEHOLDER</span>
@@ -43,32 +44,10 @@ export default function HeroPage() {
         </div>
         <div className="relative flex h-[400px] w-full items-center justify-center lg:h-[500px]">
           <div className="absolute inset-0 rounded-full bg-linear-to-tr from-gray-200/50 to-transparent blur-3xl dark:from-gray-800/50" />
-          <img
-            src="/path-to-your-isometric-illustration.png"
-            alt="Stack Illustration"
-            className="relative z-10 w-full max-w-[400px] object-contain grayscale lg:max-w-[500px]"
-          />
         </div>
       </main>
-      <footer className="">
-        <div className="mx-auto max-w-7xl px-8 py-12">
-          <div className="flex flex-wrap items-center justify-between gap-12 opacity-70 grayscale transition-all hover:grayscale-0">
-            <p className="mb-4 w-full text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase lg:mb-0 lg:w-auto dark:text-gray-500">
-              Powering ideas for <br /> the best & brightest
-            </p>
-            <LogoPlaceholder name="Transistor" />
-            <LogoPlaceholder name="OpenAI" />
-            <LogoPlaceholder name="Apple" />
-            <LogoPlaceholder name="Webflow" />
-            <LogoPlaceholder name="Nike" />
-            <LogoPlaceholder name="Zillow" />
-          </div>
-        </div>
-      </footer>
+      {/* footer */}
+      <TechCarousel />
     </div>
   )
-}
-
-function LogoPlaceholder({ name }: Readonly<{ name: string }>) {
-  return <span className="text-xl font-bold tracking-tighter">{name}</span>
 }

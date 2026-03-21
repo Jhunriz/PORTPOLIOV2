@@ -14,6 +14,11 @@ const styles = `
     from { clip-path: inset(0 0 0% 0); transform: translateY(0); opacity: 1; }
     to { clip-path: inset(0 0 100% 0); transform: translateY(60px); opacity: 0; }
   }
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
   .footer-animate { opacity: 0; }
   .footer-animate.visible { animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
   .footer-delay-1 { animation-delay: 0.1s; }
@@ -26,6 +31,16 @@ const styles = `
   .dev-text.exiting { animation: hideText 0.5s cubic-bezier(0.4, 0, 1, 1) forwards; }
   .nav-link { display: block; transition: color 0.25s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
   .nav-link:hover { transform: translateX(5px); color: white; }
+  .gradient-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #42e695);
+    background-size: 600% 600%;
+    animation: gradientMove 20s ease infinite;
+    border-radius: inherit;
+    filter: blur(120px);
+  }
 `
 
 export function Footer() {
@@ -79,8 +94,14 @@ export function Footer() {
   return (
     <>
       <style>{styles}</style>
-      <footer className="w-full border-t border-gray-200 bg-white/30 text-black shadow-2xl backdrop-blur-lg transition-colors duration-500 dark:border-gray-700 dark:bg-black/30 dark:text-white">
-        <div ref={footerRef} className="px-6 py-12 md:px-12 md:py-16 lg:px-16">
+      <footer className="relative w-full overflow-hidden border-t border-gray-200 bg-white/30 text-black shadow-2xl backdrop-blur-lg transition-colors duration-500 dark:border-gray-700 dark:bg-black/30 dark:text-white">
+        {/* Animated Gradient Background */}
+        <div className="gradient-bg" />
+
+        <div
+          ref={footerRef}
+          className="relative z-10 px-6 py-12 md:px-12 md:py-16 lg:px-16"
+        >
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <div
               className={`footer-animate footer-delay-1 space-y-10 ${visibleClass}`}
@@ -150,7 +171,7 @@ export function Footer() {
         </div>
 
         {typographyState !== "hidden" && (
-          <div className="dev-text-wrapper px-4 pb-4">
+          <div className="dev-text-wrapper relative z-10 px-4 pb-4">
             <h1
               className={`dev-text font-bold tracking-tighter text-black select-none dark:text-white ${
                 typographyState === "entering" || typographyState === "visible"
