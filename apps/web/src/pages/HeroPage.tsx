@@ -3,6 +3,7 @@ import { FolderGit2 } from "lucide-react"
 import { Kbd } from "@workspace/ui/components/kbd"
 import { useThemeShortcut } from "@/hooks/useThemeShortcut"
 import { TechCarousel } from "./TechCarousel"
+import TimelinePage from "./TimelinePage"
 
 export default function HeroPage() {
   useThemeShortcut()
@@ -48,6 +49,7 @@ export default function HeroPage() {
       </main>
       {/* footer */}
       <TechCarousel />
+      <TimelinePage />
     </div>
   )
 }
