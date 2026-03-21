@@ -3,7 +3,7 @@ import { FolderGit2 } from "lucide-react"
 
 export default function HeroPage() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-100">
+    <div className="min-h-screen font-sans text-slate-900">
       {/* Hero Section */}
       <main className="mx-auto grid max-w-7xl items-center gap-12 px-8 pt-20 pb-32 lg:grid-cols-2">
         {/* Left Column: Text */}
