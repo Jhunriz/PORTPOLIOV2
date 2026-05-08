@@ -4,15 +4,27 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { name: "Home", to: "/" },
-  { name: "Articles", to: "/articles" },
-  { name: "About", to: "/about" },
-  { name: "Contact", to: "/contact" },
+  { name: "Home", to: "top" },
+  { name: "Articles", to: "projects" },
+  { name: "About", to: "about" },
+  { name: "Contact", to: "contact" },
 ]
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
+
+  const scrollToSection = (id: string) => {
+    if (id === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      const element = document.getElementById(id)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+    setIsMobileMenuOpen(false)
+  }
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -36,11 +48,14 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="relative z-50 flex items-center gap-2">
+          <button
+            onClick={() => scrollToSection("top")}
+            className="relative z-50 flex items-center gap-2"
+          >
             <span className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
-              CODEHOLDER
+              DEV-INITIALIZE
             </span>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-8 md:flex">
@@ -50,12 +65,12 @@ export default function Header() {
                 className="relative flex flex-col items-center"
                 whileHover="hover"
               >
-                <Link
-                  to={link.to}
+                <button
+                  onClick={() => scrollToSection(link.to)}
                   className="pb-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.name}
-                </Link>
+                </button>
                 <motion.div
                   className="absolute bottom-0 left-0 h-[2px] rounded bg-foreground"
                   variants={{
@@ -107,19 +122,19 @@ export default function Header() {
             >
               <nav className="flex flex-col gap-6">
                 {navLinks.map((link) => (
-                  <Link
+                  <button
                     key={link.name}
-                    to={link.to}
-                    className="text-2xl font-semibold text-muted-foreground transition-colors hover:text-foreground"
+                    onClick={() => scrollToSection(link.to)}
+                    className="text-left text-2xl font-semibold text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.name}
-                  </Link>
+                  </button>
                 ))}
               </nav>
 
               <div className="mt-auto pt-10">
                 <p className="text-sm text-muted-foreground">
-                  © {new Date().getFullYear()} CODEHOLDER
+                  © {new Date().getFullYear()} DEV-INITIALIZE
                 </p>
               </div>
             </motion.div>

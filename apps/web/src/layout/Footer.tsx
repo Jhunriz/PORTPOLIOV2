@@ -143,7 +143,7 @@ export function Footer() {
   return (
     <>
       <style>{styles}</style>
-      <footer className="relative w-full overflow-hidden border-t border-gray-200/50 bg-white/40 text-black backdrop-blur-lg transition-colors duration-500 dark:border-gray-700/50 dark:bg-black/40 dark:text-white">
+      <footer id="contact" className="relative w-full overflow-hidden border-t border-gray-200/50 bg-white/40 text-black backdrop-blur-lg transition-colors duration-500 dark:border-gray-700/50 dark:bg-black/40 dark:text-white">
         {/* Animated Gradient Background */}
         <div className="gradient-bg" />
 
@@ -180,18 +180,26 @@ export function Footer() {
                   Navigation
                 </h3>
                 {[
-                  { href: "/", label: "Home" },
-                  { href: "/collection", label: "Articles" },
-                  { href: "/projects", label: "About" },
-                  { href: "/pricing", label: "Contact" },
-                ].map(({ href, label }) => (
-                  <a
+                  { id: "top", label: "Home" },
+                  { id: "projects", label: "Articles" },
+                  { id: "about", label: "About" },
+                  { id: "contact", label: "Contact" },
+                ].map(({ id, label }) => (
+                  <button
                     key={label}
-                    href={href}
-                    className="nav-link text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                    onClick={() => {
+                      if (id === "top") {
+                        window.scrollTo({ top: 0, behavior: "smooth" })
+                      } else {
+                        document
+                          .getElementById(id)
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                    }}
+                    className="nav-link text-left text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                   >
                     {label}
-                  </a>
+                  </button>
                 ))}
               </nav>
 

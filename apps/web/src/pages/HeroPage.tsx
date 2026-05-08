@@ -4,19 +4,20 @@ import { Kbd } from "@workspace/ui/components/kbd"
 import { useThemeShortcut } from "@/hooks/useThemeShortcut"
 import { TechCarousel } from "./TechCarousel"
 import TimelinePage from "./TimelinePage"
+import { motion } from "motion/react"
 
 export default function HeroPage() {
   useThemeShortcut()
 
   return (
     <div className="min-h-screen font-sans text-black transition-colors duration-500 dark:text-white">
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:py-20">
+      <main id="about" className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:py-20">
         <div className="grid items-center gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Content */}
           <div className="order-2 space-y-5 sm:space-y-6 md:space-y-8 lg:order-1">
             <h1 className="flex flex-col space-y-1 sm:space-y-2">
               <span className="bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-3xl leading-[1.1] font-bold tracking-tight text-transparent sm:text-5xl sm:leading-[1.1] md:text-6xl md:leading-[1.1] lg:text-7xl xl:text-8xl dark:from-white dark:to-gray-400">
-                CODEHOLDER
+                DEV-INITIALIZE
               </span>
               <span className="text-[10px] font-medium text-gray-600 sm:text-sm md:text-base dark:text-gray-400">
                 BY JHUNRIZ
@@ -66,6 +67,11 @@ export default function HeroPage() {
                 size="lg"
                 variant="outline"
                 className="w-full rounded-md border border-black px-5 py-2.5 text-sm text-black transition-all duration-300 hover:scale-105 hover:bg-gray-100 sm:w-auto sm:px-6 sm:py-3 sm:text-base dark:border-white dark:text-white dark:hover:bg-gray-800"
+                onClick={() => {
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }}
               >
                 View projects docs
               </Button>
@@ -85,13 +91,34 @@ export default function HeroPage() {
             </div>
           </div>
         </div>
+
+        {/* Scroll Down Indicator */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:bottom-8">
+          <motion.button
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            onClick={() => {
+              document
+                .getElementById("projects")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }}
+            className="flex flex-col items-center gap-2 text-gray-400 hover:text-black dark:hover:text-white"
+          >
+            <span className="text-[10px] font-bold tracking-widest uppercase">
+              Scroll
+            </span>
+            <div className="h-6 w-px bg-current" />
+          </motion.button>
+        </div>
       </main>
 
       {/* Tech Carousel and Timeline */}
       <div className="mt-8 sm:mt-12 md:mt-16">
         <TechCarousel />
       </div>
-      <TimelinePage />
+      <div id="projects">
+        <TimelinePage />
+      </div>
     </div>
   )
 }
