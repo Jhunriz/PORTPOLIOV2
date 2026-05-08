@@ -9,7 +9,7 @@ import case1 from "../../../../../../../../apps/web/assets/images/case1.png"
 
 const V1_1_0_Content = () => {
   return (
-    <div>
+    <div className="sm:w-56 md:w-full lg:w-full">
       <div className="space-y-4">
         <div className="space-y-3">
           <h3 className="text-xl font-semibold">Case Management System</h3>
@@ -22,7 +22,7 @@ const V1_1_0_Content = () => {
         <img
           src={case1}
           alt="Case Management System Demo"
-          className="rounded-[10px] border"
+          className="rounded-[10px] border w-auto md:w-auto lg:w-full"
         />
         <p className="text-sm text-muted-foreground">
           v1.1.0 introduces a complete overhaul of how cases are created,

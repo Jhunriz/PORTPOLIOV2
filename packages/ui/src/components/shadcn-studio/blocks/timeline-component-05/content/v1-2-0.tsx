@@ -15,7 +15,7 @@ aws iam list-users                 # List IAM users
 aws cloudwatch get-metric-stats    # Check CloudWatch metrics`
 
   return (
-    <div>
+    <div className="w-2xs">
       <div className="space-y-4">
         <div className="space-y-3">
           <h3 className="text-xl font-semibold">
