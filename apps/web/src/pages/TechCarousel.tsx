@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useAnimationFrame, useMotionValue } from "framer-motion"
 
 const techIcons: Record<string, string> = {
@@ -57,7 +57,6 @@ const techIcons: Record<string, string> = {
 }
 
 const SPEED = 40
-const GAP = 40
 
 function InfiniteTrack({
   logos,
@@ -65,6 +64,16 @@ function InfiniteTrack({
   const x = useMotionValue(0)
   const trackRef = useRef<HTMLDivElement>(null)
   const isPaused = useRef(false)
+  const [gap, setGap] = useState(40)
+
+  useEffect(() => {
+    const updateGap = () => {
+      setGap(window.innerWidth < 640 ? 20 : 40)
+    }
+    updateGap()
+    window.addEventListener("resize", updateGap)
+    return () => window.removeEventListener("resize", updateGap)
+  }, [])
 
   useAnimationFrame((_, delta) => {
     if (isPaused.current) return
@@ -87,7 +96,7 @@ function InfiniteTrack({
       {doubled.map((logo, i) => (
         <motion.div
           key={`${logo.name}-${i}`}
-          style={{ marginRight: GAP }}
+          style={{ marginRight: gap }}
           className="flex shrink-0 flex-col items-center gap-1.5"
           whileHover={{ y: -4, scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -95,7 +104,7 @@ function InfiniteTrack({
           <img
             src={logo.src}
             alt={logo.name}
-            className="h-9 w-auto object-contain"
+            className="h-7 w-auto object-contain sm:h-9"
             style={{ colorScheme: "light" }}
           />
           <span className="text-[10px] text-gray-500 dark:text-gray-400">

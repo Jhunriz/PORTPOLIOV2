@@ -9,7 +9,7 @@ import case1 from "../../../../../../../../apps/web/assets/images/case1.png"
 
 const V1_1_0_Content = () => {
   return (
-    <div className="sm:w-56 md:w-full lg:w-full">
+    <div className="w-full">
       <div className="space-y-4">
         <div className="space-y-3">
           <h3 className="text-xl font-semibold">Case Management System</h3>
@@ -43,7 +43,7 @@ const V1_1_0_Content = () => {
         >
           <AccordionItem value="item-1">
             <AccordionTrigger className="hover:no-underline [&>svg]:size-6">
-              <Badge className="h-6 rounded-none border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&]:hover:bg-green-600/5 dark:[a&]:hover:bg-green-400/5">
+              <Badge className="h-6 rounded-none border-none text-left truncate max-w-[180px] sm:max-w-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&]:hover:bg-green-600/5 dark:[a&]:hover:bg-green-400/5">
                 New
               </Badge>
             </AccordionTrigger>
@@ -70,7 +70,7 @@ const V1_1_0_Content = () => {
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger className="hover:no-underline [&>svg]:size-6">
-              <Badge className="h-6 rounded-none border-none bg-sky-600/10 text-sky-600 focus-visible:ring-sky-600/20 focus-visible:outline-none dark:bg-sky-400/10 dark:text-sky-400 dark:focus-visible:ring-sky-400/40 [a&]:hover:bg-sky-600/5 dark:[a&]:hover:bg-sky-400/5">
+              <Badge className="h-6 rounded-none border-none text-left truncate max-w-[180px] sm:max-w-none bg-sky-600/10 text-sky-600 focus-visible:ring-sky-600/20 focus-visible:outline-none dark:bg-sky-400/10 dark:text-sky-400 dark:focus-visible:ring-sky-400/40 [a&]:hover:bg-sky-600/5 dark:[a&]:hover:bg-sky-400/5">
                 Updates
               </Badge>
             </AccordionTrigger>
@@ -101,7 +101,7 @@ const V1_1_0_Content = () => {
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger className="hover:no-underline [&>svg]:size-6">
-              <Badge className="h-6 rounded-none border-none bg-amber-600/10 text-amber-600 focus-visible:ring-amber-600/20 focus-visible:outline-none dark:bg-orange-400/10 dark:text-orange-400 dark:focus-visible:ring-orange-400/40 [a&]:hover:bg-amber-600/5 dark:[a&]:hover:bg-orange-400/5">
+              <Badge className="h-6 rounded-none border-none text-left truncate max-w-[180px] sm:max-w-none bg-amber-600/10 text-amber-600 focus-visible:ring-amber-600/20 focus-visible:outline-none dark:bg-orange-400/10 dark:text-orange-400 dark:focus-visible:ring-orange-400/40 [a&]:hover:bg-amber-600/5 dark:[a&]:hover:bg-orange-400/5">
                 Bug Fixes
               </Badge>
             </AccordionTrigger>

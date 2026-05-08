@@ -77,19 +77,22 @@ function CopyCode({ code = "javascript" }: Readonly<CopyCodeProps>) {
 
   return (
     <div
-      className="relative rounded-none bg-muted p-2.5"
+      className="relative group rounded-none bg-muted p-1 sm:p-2"
       style={{ fontFamily: "'Fira Code', monospace" }}
     >
-      <div className="rounded-none bg-white px-3.5 py-2.5 text-xs dark:bg-black">
-        <pre className="overflow-x-auto">
-          <code dangerouslySetInnerHTML={{ __html: highlightCode(code) }} />
+      <div className="relative rounded-none bg-white p-2.5 sm:p-3 text-[10px] sm:text-xs dark:bg-black overflow-hidden">
+        <pre className="overflow-x-auto sm:overflow-x-visible pr-8 scrollbar-thin scrollbar-thumb-muted">
+          <code 
+            className="block whitespace-pre-wrap sm:whitespace-pre break-all sm:break-normal"
+            dangerouslySetInnerHTML={{ __html: highlightCode(code) }} 
+          />
         </pre>
         <button
           onClick={handleCopy}
-          className="absolute inset-e-0 bottom-0 rounded-md bg-muted p-1.5 transition-colors"
+          className="absolute right-1.5 top-1.5 rounded-md bg-muted/80 p-1.5 transition-all hover:bg-muted sm:bg-muted/50 sm:opacity-0 sm:group-hover:opacity-100 sm:focus:opacity-100"
           aria-label={copied ? "Copied" : "Copy code"}
         >
-          {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
+          {copied ? <Check className="size-3 sm:size-3.5" /> : <Copy className="size-3 sm:size-3.5" />}
         </button>
       </div>
     </div>

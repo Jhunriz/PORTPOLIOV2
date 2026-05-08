@@ -9,7 +9,7 @@ export default function MainLayout() {
       <Header />
 
       {/* Main content */}
-      <main className="mx-auto w-full max-w-7xl flex-1 px-2 py-6 sm:px-6 lg:px-6">
+      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8">
         <Outlet />
       </main>
 

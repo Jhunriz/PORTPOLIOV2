@@ -15,7 +15,7 @@ aws iam list-users                 # List IAM users
 aws cloudwatch get-metric-stats    # Check CloudWatch metrics`
 
   return (
-    <div className="w-2xs">
+    <div className="w-full">
       <div className="space-y-4">
         <div className="space-y-3">
           <h3 className="text-xl font-semibold">
@@ -66,7 +66,7 @@ aws cloudwatch get-metric-stats    # Check CloudWatch metrics`
         >
           <AccordionItem value="item-1">
             <AccordionTrigger className="hover:no-underline [&>svg]:size-6">
-              <Badge className="h-6 rounded-none border-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&]:hover:bg-green-600/5 dark:[a&]:hover:bg-green-400/5">
+              <Badge className="h-6 rounded-none border-none text-left truncate max-w-[180px] sm:max-w-none bg-green-600/10 text-green-600 focus-visible:ring-green-600/20 focus-visible:outline-none dark:bg-green-400/10 dark:text-green-400 dark:focus-visible:ring-green-400/40 [a&]:hover:bg-green-600/5 dark:[a&]:hover:bg-green-400/5">
                 Phase 1 – Foundations
               </Badge>
             </AccordionTrigger>
@@ -94,7 +94,7 @@ aws cloudwatch get-metric-stats    # Check CloudWatch metrics`
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger className="hover:no-underline [&>svg]:size-6">
-              <Badge className="h-6 rounded-none border-none bg-sky-600/10 text-sky-600 focus-visible:ring-sky-600/20 focus-visible:outline-none dark:bg-sky-400/10 dark:text-sky-400 dark:focus-visible:ring-sky-400/40 [a&]:hover:bg-sky-600/5 dark:[a&]:hover:bg-sky-400/5">
+              <Badge className="h-6 rounded-none border-none text-left truncate max-w-[180px] sm:max-w-none bg-sky-600/10 text-sky-600 focus-visible:ring-sky-600/20 focus-visible:outline-none dark:bg-sky-400/10 dark:text-sky-400 dark:focus-visible:ring-sky-400/40 [a&]:hover:bg-sky-600/5 dark:[a&]:hover:bg-sky-400/5">
                 Phase 2 – Core Domains
               </Badge>
             </AccordionTrigger>
@@ -122,7 +122,7 @@ aws cloudwatch get-metric-stats    # Check CloudWatch metrics`
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger className="hover:no-underline [&>svg]:size-6">
-              <Badge className="h-6 rounded-none border-none bg-amber-600/10 text-amber-600 focus-visible:ring-amber-600/20 focus-visible:outline-none dark:bg-orange-400/10 dark:text-orange-400 dark:focus-visible:ring-orange-400/40 [a&]:hover:bg-amber-600/5 dark:[a&]:hover:bg-orange-400/5">
+              <Badge className="h-6 rounded-none border-none text-left truncate max-w-[180px] sm:max-w-none bg-amber-600/10 text-amber-600 focus-visible:ring-amber-600/20 focus-visible:outline-none dark:bg-orange-400/10 dark:text-orange-400 dark:focus-visible:ring-orange-400/40 [a&]:hover:bg-amber-600/5 dark:[a&]:hover:bg-orange-400/5">
                 Phase 3 – Exam Prep
               </Badge>
             </AccordionTrigger>

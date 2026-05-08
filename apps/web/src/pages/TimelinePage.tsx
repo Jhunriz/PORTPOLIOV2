@@ -46,10 +46,8 @@ export const releases: Release[] = sortedReleases.map((release, index) => ({
 const TimelinePage = () => {
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="mx-auto max-w-4xl px-4 py-10 md:px-8 md:py-16">
-        <div className="flex flex-col items-start">
-          <ChangelogContent releases={releases} />
-        </div>
+      <div className="w-full">
+        <ChangelogContent releases={releases} />
       </div>
     </div>
   )

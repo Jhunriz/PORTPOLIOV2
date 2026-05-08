@@ -9,7 +9,7 @@ import rds1 from "../../../../../../../../apps/web/assets/images/RDS1.png"
 
 const V1_3_0_Content = () => {
   return (
-    <div className="w-auto lg:w-full">
+    <div className="w-full">
       <div className="space-y-4">
         <div className="space-y-3">
           <h3 className="text-xl font-semibold">
@@ -42,7 +42,7 @@ const V1_3_0_Content = () => {
         <img
           src={rds1}
           alt="Records Inventory Tracker Demo"
-          className="rounded-none border w-auto md:w-auto lg:w-full"
+          className="rounded-none border w-full h-auto"
         />
         <Accordion
           multiple

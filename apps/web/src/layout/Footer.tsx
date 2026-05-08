@@ -244,7 +244,7 @@ export function Footer() {
                   : "exiting"
               }`}
               style={{
-                fontSize: "clamp(48px, 15vw, 280px)",
+                fontSize: "clamp(40px, 12vw, 280px)",
                 lineHeight: "0.9",
                 maxWidth: "100%",
               }}

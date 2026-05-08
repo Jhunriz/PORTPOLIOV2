@@ -18,7 +18,7 @@ const ChangelogContent = ({ releases }: ChangelogContentProps) => {
         <div
           key={release.version}
           id={String(index + 1)}
-          className="relative flex scroll-mt-18 justify-end gap-2 sm:gap-3 md:gap-4"
+          className="relative flex scroll-mt-18 gap-4 sm:gap-6 md:justify-end md:gap-4"
         >
           {/* Desktop Version Badge and Date - Hidden on Mobile */}
           <div className="sticky top-19 hidden flex-col items-end gap-2 self-start pb-4 md:flex md:w-32 lg:w-36">
@@ -43,10 +43,10 @@ const ChangelogContent = ({ releases }: ChangelogContentProps) => {
           </div>
 
           {/* Content Area */}
-          <div className="flex flex-1 flex-col gap-3 pb-8 pl-2 sm:gap-4 sm:pb-10 sm:pl-3 md:pb-11 md:pl-4 lg:pl-6">
+          <div className="flex flex-1 flex-col gap-3 pb-8 pl-4 sm:gap-4 sm:pb-10 sm:pl-6 md:pb-11 md:pl-4 lg:pl-6">
             {/* Mobile Version Badge and Date */}
             <div className="flex flex-col gap-1.5 sm:gap-2 md:hidden">
-              <Badge className="flex w-fit rounded-sm bg-primary/10 text-xs text-primary sm:text-sm">
+              <Badge className="flex w-fit truncate rounded-sm bg-primary/10 text-xs text-primary sm:text-sm">
                 {release.version}
               </Badge>
               <div className="text-xs font-medium text-muted-foreground sm:text-sm">

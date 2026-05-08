@@ -15,10 +15,10 @@ export default function HeroPage() {
           {/* Left Content */}
           <div className="order-2 space-y-5 sm:space-y-6 md:space-y-8 lg:order-1">
             <h1 className="flex flex-col space-y-1 sm:space-y-2">
-              <span className="bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl leading-[1.1] font-bold tracking-tight text-transparent sm:text-5xl sm:leading-[1.1] md:text-6xl md:leading-[1.1] lg:text-7xl xl:text-8xl dark:from-white dark:to-gray-400">
+              <span className="bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-3xl leading-[1.1] font-bold tracking-tight text-transparent sm:text-5xl sm:leading-[1.1] md:text-6xl md:leading-[1.1] lg:text-7xl xl:text-8xl dark:from-white dark:to-gray-400">
                 CODEHOLDER
               </span>
-              <span className="text-xs font-medium text-gray-600 sm:text-sm md:text-base dark:text-gray-400">
+              <span className="text-[10px] font-medium text-gray-600 sm:text-sm md:text-base dark:text-gray-400">
                 BY JHUNRIZ
               </span>
             </h1>
@@ -72,17 +72,12 @@ export default function HeroPage() {
             </div>
           </div>
 
-          {/* Right Content - Decorative Element */}
-          <div className="relative order-1 flex h-[300px] w-full items-center justify-center sm:h-[350px] md:h-[400px] lg:order-2 lg:h-[450px] xl:h-[500px]">
-            {/* Animated Background Effect */}
+          <div className="relative order-1 flex h-75 w-full items-center justify-center sm:h-87.5 md:h-100 lg:order-2 lg:h-112.5 xl:h-125">
             <div className="absolute inset-0 animate-pulse rounded-full bg-linear-to-tr from-gray-200/50 via-gray-100/30 to-transparent blur-2xl sm:blur-3xl dark:from-gray-800/50 dark:via-gray-700/30" />
 
-            {/* Decorative Circles */}
             <div className="animate-spin-slow absolute h-2/3 w-2/3 rounded-full border-2 border-gray-200 opacity-30 dark:border-gray-700" />
             <div className="animate-spin-slow animation-delay-1000 absolute h-1/2 w-1/2 rounded-full border-2 border-gray-300 opacity-40 dark:border-gray-600" />
             <div className="absolute h-1/3 w-1/3 animate-pulse rounded-full bg-linear-to-r from-blue-500 to-purple-500 opacity-20 blur-xl" />
-
-            {/* Optional: Add an icon or code symbol */}
             <div className="relative z-10">
               <div className="text-6xl opacity-20 select-none sm:text-7xl md:text-8xl lg:text-9xl">
                 {`</>`}
